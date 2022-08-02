@@ -62,5 +62,20 @@ for label, sub_imgs in sub_imgs_dict.items():
     plt.imshow(img)
 ```
   
+7. save_cropped_by_yolofmt(txt_dir:str, img_dir:str, output_dir:str, to_rect=True)
+```python
+save_cropped_by_yolofmt("./txt", "./images", "./cropped")
+```
+
+8. generate_sliding_windows(I:np.ndarray, window_size=3, stride_size=1, copy=True) : np.ndarray
+```python
+img = np.random.uniform(0, 1, (224, 224, 3))
+sliding_windows = generate_sliding_windows(batch_images, 28, 28)
+for y in range(sliding_windows.shape[0]):
+  for x in range(sliding_windows.shape[1]):
+    plt.subplot(sliding_windows.shape[0], sliding_windows.shape[1], y*sliding_windows.shape[1]+x+1)
+    plt.imshow(sliding_windows[y, x].transpose((1, 2, 0)))
+```
+  
 
 
