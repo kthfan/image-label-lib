@@ -301,14 +301,14 @@ def generate_sliding_windows(I, window_size=3, stride_size=1, copy=True):
     
     if isinstance(window_size, int):
         window_size = (window_size, window_size)
+    if isinstance(stride_size, int):
+        stride_size = (stride_size, stride_size)
     windows = np.lib.stride_tricks.sliding_window_view(I, window_size, axis=(0, 1))
     windows = windows[::stride_size[0], ::stride_size[1]]
     
     if copy:
         windows = windows.copy()
-    if isinstance(stride_size, int):
-        stride_size = (stride_size, stride_size)
-    
+        
     return windows
 
 
