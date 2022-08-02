@@ -44,5 +44,23 @@ for label, images in labeled_subimgs.items():
 labelme2yolofmt("./json", "./txt")
 ```
 
-5.
+5. read_yolofmt(txt_path:str) : dict<str, np.ndarray>
+```python
+rects_dict = read_yolofmt("./txt/1.txt")
+for label, rects in rects_dict.items():
+  print("label: ", label)
+  for i in range(rects.shape[0]):
+    print("  x: {}, y: {}, width: {}, height: {}".format(*rect[i]))
+```
+
+6. crop_by_yolofmt(txt_path:str, img_path:str, to_rect=True) : dict<str, list<np.ndarray>>
+```python
+sub_imgs_dict = crop_by_yolofmt("./txt/1.txt", "./images/1.jpg")
+for label, sub_imgs in sub_imgs_dict.items():
+  print("label: ", label)
+  for img in sub_imgs:
+    plt.imshow(img)
+```
+  
+
 
