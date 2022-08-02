@@ -28,7 +28,7 @@ def read_mask_from_labelme(path):
     return masks, labels
 
 def save_cropped_subimages_from_labelme(json_dir, img_dir, output_dir, window_size=(224, 224), stride_size=(112, 112)):
-    '''Read json files and images, then save the subimages in subdirectories that named by their corresponding label. Subimages are generate in sliding manner.
+    '''Read json files and images, then save the subimages in subdirectories that named by their corresponding label. Subimages are generated in sliding wnidow manner.
     # Args
         json_dir: Path of json files.
         img_dir: Path of images.
@@ -71,7 +71,7 @@ def save_cropped_subimages_from_labelme(json_dir, img_dir, output_dir, window_si
                 cv2.imencode('.jpg', subimgs[i], [cv2.IMWRITE_JPEG_QUALITY, 70])[1].tofile(path)
         
 def subimages_from_labelme(json_path, img_path, window_size=(224, 224), stride_size=(112, 112)):
-    '''Read json file and image, then give the subimages and corresponding label.
+    '''Read json file and image, then give the subimages and corresponding label. Subimages are generated in sliding wnidow manner.
     # Args
         json_path: Path of json files.
         img_path: Path of images.
@@ -121,7 +121,7 @@ def subimages_from_labelme(json_path, img_path, window_size=(224, 224), stride_s
         
 
 def labelme2yolofmt(json_dir, output_dir):
-    '''Transform labelme format into yolo bounding box format
+    '''Transform labelme format json files into yolo bounding box format txt files.
     # Args
         json_dir: The directory including labelme format .json file.
         output_dir: The directory that yolo bounding box format .txt file will be store.
