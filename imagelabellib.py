@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 def read_mask_from_labelme(path):
-    '''Read labelme .json file and transform into masks
+    '''Read labelme .json file and transform into masks.
     # Args
         path: Path of the .json file.
     # Returns
@@ -28,7 +28,14 @@ def read_mask_from_labelme(path):
     return masks, labels
 
 def save_cropped_subimages_from_labelme(json_dir, img_dir, output_dir, window_size=(224, 224), stride_size=(112, 112)):
-    
+    '''Read json files and images, then save the subimages in subdirectories that named by their corresponding label. Subimages are generate in sliding manner.
+    # Args
+        json_dir: Path of json files.
+        img_dir: Path of images.
+        output_dir: The directory where store images that labeled by it's subdirectories.
+        window_size: Size (height, width) of subimages.
+        stride_size: Stride while performing sliding window.
+    '''
     # check whether output_dir exists
     if not os.path.isdir(output_dir):
         os.mkdir(output_dir)
@@ -66,8 +73,8 @@ def save_cropped_subimages_from_labelme(json_dir, img_dir, output_dir, window_si
 def subimages_from_labelme(json_path, img_path, window_size=(224, 224), stride_size=(112, 112)):
     '''Read json file and image, then give the subimages and corresponding label.
     # Args
-        json_path: Path of json file.
-        img_path: Path of image.
+        json_path: Path of json files.
+        img_path: Path of images.
         window_size: Size (height, width) of subimages.
         stride_size: Stride while performing sliding window.
     # Returns
