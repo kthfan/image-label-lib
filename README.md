@@ -4,7 +4,7 @@ Transformation between yolo label, labelme label and cropped images.
 # Usage
 
 | Function | Description |
-| :---: | :---: |
+| :--- | :--- |
 | read_mask_from_labelme | Read labelme .json file and transform into masks. |
 | save_cropped_subimages_from_labelme |  |
 | subimages_from_labelme | Read json file and image, then give the subimages and corresponding label. |
